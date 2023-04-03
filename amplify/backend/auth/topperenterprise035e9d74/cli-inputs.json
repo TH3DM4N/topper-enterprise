@@ -2,7 +2,7 @@
   "version": "1",
   "cognitoConfig": {
     "identityPoolName": "topperenterprise035e9d74_identitypool_035e9d74",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "topper035e9d74",
     "userPoolName": "topperenterprise035e9d74_userpool_035e9d74",
     "autoVerifiedAttributes": [

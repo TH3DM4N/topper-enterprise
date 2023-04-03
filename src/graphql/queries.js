@@ -36,26 +36,10 @@ export const getRelation = /* GraphQL */ `
   query GetRelation($id: ID!) {
     getRelation(id: $id) {
       id
-      requester {
-        id
-        name
-        description
-        profile_picture
-        createdAt
-        updatedAt
-      }
-      receiver {
-        id
-        name
-        description
-        profile_picture
-        createdAt
-        updatedAt
-      }
+      requesterId
+      receiverId
       createdAt
       updatedAt
-      relationRequesterId
-      relationReceiverId
     }
   }
 `;
@@ -68,26 +52,10 @@ export const listRelations = /* GraphQL */ `
     listRelations(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        requester {
-          id
-          name
-          description
-          profile_picture
-          createdAt
-          updatedAt
-        }
-        receiver {
-          id
-          name
-          description
-          profile_picture
-          createdAt
-          updatedAt
-        }
+        requesterId
+        receiverId
         createdAt
         updatedAt
-        relationRequesterId
-        relationReceiverId
       }
       nextToken
     }
@@ -101,28 +69,10 @@ export const getPost = /* GraphQL */ `
       image
       grade
       location
-      user {
-        id
-        name
-        description
-        profile_picture
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          content
-          createdAt
-          updatedAt
-          postCommentsId
-          commentUserId
-        }
-        nextToken
-      }
+      userId
+      commentsIds
       createdAt
       updatedAt
-      postUserId
     }
   }
 `;
@@ -139,20 +89,10 @@ export const listPosts = /* GraphQL */ `
         image
         grade
         location
-        user {
-          id
-          name
-          description
-          profile_picture
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
+        userId
+        commentsIds
         createdAt
         updatedAt
-        postUserId
       }
       nextToken
     }
@@ -163,18 +103,9 @@ export const getComment = /* GraphQL */ `
     getComment(id: $id) {
       id
       content
-      user {
-        id
-        name
-        description
-        profile_picture
-        createdAt
-        updatedAt
-      }
+      userId
       createdAt
       updatedAt
-      postCommentsId
-      commentUserId
     }
   }
 `;
@@ -188,18 +119,9 @@ export const listComments = /* GraphQL */ `
       items {
         id
         content
-        user {
-          id
-          name
-          description
-          profile_picture
-          createdAt
-          updatedAt
-        }
+        userId
         createdAt
         updatedAt
-        postCommentsId
-        commentUserId
       }
       nextToken
     }
@@ -209,39 +131,10 @@ export const getLike = /* GraphQL */ `
   query GetLike($id: ID!) {
     getLike(id: $id) {
       id
-      user {
-        id
-        name
-        description
-        profile_picture
-        createdAt
-        updatedAt
-      }
-      post {
-        id
-        title
-        image
-        grade
-        location
-        user {
-          id
-          name
-          description
-          profile_picture
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        postUserId
-      }
+      userId
+      postId
       createdAt
       updatedAt
-      likeUserId
-      likePostId
     }
   }
 `;
@@ -254,28 +147,10 @@ export const listLikes = /* GraphQL */ `
     listLikes(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        user {
-          id
-          name
-          description
-          profile_picture
-          createdAt
-          updatedAt
-        }
-        post {
-          id
-          title
-          image
-          grade
-          location
-          createdAt
-          updatedAt
-          postUserId
-        }
+        userId
+        postId
         createdAt
         updatedAt
-        likeUserId
-        likePostId
       }
       nextToken
     }

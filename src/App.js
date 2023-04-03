@@ -1,36 +1,22 @@
 import React from "react";
 import "./App.css";
 import "@aws-amplify/ui-react/styles.css";
-import { View, withAuthenticator } from "@aws-amplify/ui-react";
+import { withAuthenticator } from "@aws-amplify/ui-react";
 
-import ButtonAppBar from "./components/AppBar";
-import Post from "./components/Post";
+import HomePage from "./pages/HomePage";
+import Profile from "./pages/ProfilePage";
+import CreatePostPage from "./pages/CreatePostPage";
 
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Unstable_Grid2";
+import { Routes, Route } from "react-router-dom";
 
-const App = () => {
+function App() {
   return (
-    <View className="App">
-      <ButtonAppBar />
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-          <Grid xs={4} xsOffset={4}>
-            <Post />
-          </Grid>
-          <Grid xs={4} xsOffset={4}>
-            <Post />
-          </Grid>
-          <Grid xs={4} xsOffset={4}>
-            <Post />
-          </Grid>
-          <Grid xs={4} xsOffset={4}>
-            <Post />
-          </Grid>
-        </Grid>
-      </Box>
-    </View>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/createpost" element={<CreatePostPage />} />
+    </Routes>
   );
-};
+}
 
 export default withAuthenticator(App);

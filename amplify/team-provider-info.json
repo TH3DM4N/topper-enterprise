@@ -13,7 +13,8 @@
     },
     "categories": {
       "auth": {
-        "topperenterprise035e9d74": {}
+        "topperenterprise035e9d74": {},
+        "true": {}
       },
       "api": {
         "topperenterprise": {}

@@ -1,37 +1,54 @@
 import React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { Button, CardActionArea, CardActions } from "@mui/material";
+import {
+  Avatar,
+  Card,
+  CardHeader,
+  CardContent,
+  CardActions,
+  IconButton,
+  Typography,
+} from "@mui/material";
 
-function Post() {
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
+
+import image1 from "../assets/climb1.png";
+import image2 from "../assets/climb2.png";
+import { CategorySharp } from "@mui/icons-material";
+
+const Post = ({ post }) => {
+  const username = "Dylan";
+  const caption = "Welcome to my first post";
+
   return (
     <Card>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Lizard
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Lizards are a group of squamate reptiles, with over 6,000 species,
-            ranging across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
+      <CardHeader avatar={<Avatar src={image1} />} title={caption} />
+      <img
+        src={image2}
+        alt={caption}
+        style={{ width: "100%", objectFit: "cover" }}
+      />
+      <CardContent>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {caption}
+        </Typography>
+        {/* <Typography variant="body2" color="textSecondary" component="p">
+          {post.grade}
+        </Typography>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {post.location}
+        </Typography> */}
+      </CardContent>
+      <CardActions disableSpacing>
+        <IconButton aria-label="add to favorites">
+          <FavoriteIcon />
+        </IconButton>
+        <IconButton aria-label="comment">
+          <ChatBubbleOutlineIcon />
+        </IconButton>
       </CardActions>
     </Card>
   );
-}
+};
 
 export default Post;

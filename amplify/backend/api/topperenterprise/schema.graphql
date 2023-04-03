@@ -12,8 +12,8 @@ type User @model {
 
 type Relation @model {
   id: ID!
-  requester: User! @hasOne
-  receiver: User! @hasOne
+  requesterId: String!
+  receiverId: String!
 }
 
 type Post @model {
@@ -22,18 +22,18 @@ type Post @model {
   image: String!
   grade: String!
   location: String!
-  user: User @hasOne
-  comments: [Comment] @hasMany
+  userId: String!
+  commentsIds: [String]
 }
 
 type Comment @model {
   id: ID!
   content: String!
-  user: User @hasOne
+  userId: String!
 }
 
 type Like @model {
   id: ID!
-  user: User @hasOne
-  post: Post @hasOne
+  userId: String!
+  postId: String!
 }

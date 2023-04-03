@@ -53,26 +53,10 @@ export const createRelation = /* GraphQL */ `
   ) {
     createRelation(input: $input, condition: $condition) {
       id
-      requester {
-        id
-        name
-        description
-        profile_picture
-        createdAt
-        updatedAt
-      }
-      receiver {
-        id
-        name
-        description
-        profile_picture
-        createdAt
-        updatedAt
-      }
+      requesterId
+      receiverId
       createdAt
       updatedAt
-      relationRequesterId
-      relationReceiverId
     }
   }
 `;
@@ -83,26 +67,10 @@ export const updateRelation = /* GraphQL */ `
   ) {
     updateRelation(input: $input, condition: $condition) {
       id
-      requester {
-        id
-        name
-        description
-        profile_picture
-        createdAt
-        updatedAt
-      }
-      receiver {
-        id
-        name
-        description
-        profile_picture
-        createdAt
-        updatedAt
-      }
+      requesterId
+      receiverId
       createdAt
       updatedAt
-      relationRequesterId
-      relationReceiverId
     }
   }
 `;
@@ -113,26 +81,10 @@ export const deleteRelation = /* GraphQL */ `
   ) {
     deleteRelation(input: $input, condition: $condition) {
       id
-      requester {
-        id
-        name
-        description
-        profile_picture
-        createdAt
-        updatedAt
-      }
-      receiver {
-        id
-        name
-        description
-        profile_picture
-        createdAt
-        updatedAt
-      }
+      requesterId
+      receiverId
       createdAt
       updatedAt
-      relationRequesterId
-      relationReceiverId
     }
   }
 `;
@@ -147,28 +99,10 @@ export const createPost = /* GraphQL */ `
       image
       grade
       location
-      user {
-        id
-        name
-        description
-        profile_picture
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          content
-          createdAt
-          updatedAt
-          postCommentsId
-          commentUserId
-        }
-        nextToken
-      }
+      userId
+      commentsIds
       createdAt
       updatedAt
-      postUserId
     }
   }
 `;
@@ -183,28 +117,10 @@ export const updatePost = /* GraphQL */ `
       image
       grade
       location
-      user {
-        id
-        name
-        description
-        profile_picture
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          content
-          createdAt
-          updatedAt
-          postCommentsId
-          commentUserId
-        }
-        nextToken
-      }
+      userId
+      commentsIds
       createdAt
       updatedAt
-      postUserId
     }
   }
 `;
@@ -219,28 +135,10 @@ export const deletePost = /* GraphQL */ `
       image
       grade
       location
-      user {
-        id
-        name
-        description
-        profile_picture
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          content
-          createdAt
-          updatedAt
-          postCommentsId
-          commentUserId
-        }
-        nextToken
-      }
+      userId
+      commentsIds
       createdAt
       updatedAt
-      postUserId
     }
   }
 `;
@@ -252,18 +150,9 @@ export const createComment = /* GraphQL */ `
     createComment(input: $input, condition: $condition) {
       id
       content
-      user {
-        id
-        name
-        description
-        profile_picture
-        createdAt
-        updatedAt
-      }
+      userId
       createdAt
       updatedAt
-      postCommentsId
-      commentUserId
     }
   }
 `;
@@ -275,18 +164,9 @@ export const updateComment = /* GraphQL */ `
     updateComment(input: $input, condition: $condition) {
       id
       content
-      user {
-        id
-        name
-        description
-        profile_picture
-        createdAt
-        updatedAt
-      }
+      userId
       createdAt
       updatedAt
-      postCommentsId
-      commentUserId
     }
   }
 `;
@@ -298,18 +178,9 @@ export const deleteComment = /* GraphQL */ `
     deleteComment(input: $input, condition: $condition) {
       id
       content
-      user {
-        id
-        name
-        description
-        profile_picture
-        createdAt
-        updatedAt
-      }
+      userId
       createdAt
       updatedAt
-      postCommentsId
-      commentUserId
     }
   }
 `;
@@ -320,39 +191,10 @@ export const createLike = /* GraphQL */ `
   ) {
     createLike(input: $input, condition: $condition) {
       id
-      user {
-        id
-        name
-        description
-        profile_picture
-        createdAt
-        updatedAt
-      }
-      post {
-        id
-        title
-        image
-        grade
-        location
-        user {
-          id
-          name
-          description
-          profile_picture
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        postUserId
-      }
+      userId
+      postId
       createdAt
       updatedAt
-      likeUserId
-      likePostId
     }
   }
 `;
@@ -363,39 +205,10 @@ export const updateLike = /* GraphQL */ `
   ) {
     updateLike(input: $input, condition: $condition) {
       id
-      user {
-        id
-        name
-        description
-        profile_picture
-        createdAt
-        updatedAt
-      }
-      post {
-        id
-        title
-        image
-        grade
-        location
-        user {
-          id
-          name
-          description
-          profile_picture
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        postUserId
-      }
+      userId
+      postId
       createdAt
       updatedAt
-      likeUserId
-      likePostId
     }
   }
 `;
@@ -406,39 +219,10 @@ export const deleteLike = /* GraphQL */ `
   ) {
     deleteLike(input: $input, condition: $condition) {
       id
-      user {
-        id
-        name
-        description
-        profile_picture
-        createdAt
-        updatedAt
-      }
-      post {
-        id
-        title
-        image
-        grade
-        location
-        user {
-          id
-          name
-          description
-          profile_picture
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        postUserId
-      }
+      userId
+      postId
       createdAt
       updatedAt
-      likeUserId
-      likePostId
     }
   }
 `;
