@@ -6,8 +6,10 @@ input AMPLIFY {
 type User @model {
   id: ID!
   name: String!
-  description: String
-  profile_picture: String
+  username: String
+  bio: String
+  discipline: String
+  profileImage: String
 }
 
 type Relation @model {

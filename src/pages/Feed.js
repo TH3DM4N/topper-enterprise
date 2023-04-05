@@ -13,7 +13,8 @@ import { Grid } from "@mui/material";
 
 function Feed() {
   const matches = useMediaQuery("(min-width:600)");
-  const [posts, setPosts] = useState(null);
+  const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchPosts();
@@ -23,28 +24,19 @@ function Feed() {
     const apiData = await API.graphql({ query: listPosts });
     const postsFromAPI = apiData.data.listPosts.items;
     setPosts(postsFromAPI);
-  }
-  if (!posts) {
-    return <div>Loading...</div>;
+    setIsLoading(false);
+    console.log(posts);
   }
 
-  if (matches) {
-    return (
-      <Grid sx={{ maxWidth: "55%" }}>
-        <Box>
-          {posts.map((post) => (
-            <Post key={post.id} post={post} />
-          ))}
-        </Box>
-      </Grid>
-    );
-  } else {
-    return (
-      <Grid>
-        <Post />
-      </Grid>
-    );
-  }
+  return (
+    <div className="feed-container">
+      {isLoading ? (
+        <p>Loading posts...</p>
+      ) : (
+        posts.map((post, index) => <Post key={index} postData={post} />)
+      )}
+    </div>
+  );
 }
 
 export default withAuthenticator(Feed);

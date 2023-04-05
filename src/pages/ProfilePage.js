@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Paper, Typography, Avatar } from "@mui/material";
-import Navbar from "../components/AppBar"; 
+import Navbar from "../components/AppBar";
 
 import image1 from "../assets/climb1.png";
 import image2 from "../assets/climb2.png";
@@ -12,32 +12,106 @@ const Profile = () => {
     { id: 2, imageUrl: image2, caption: "cap2" },
     { id: 3, imageUrl: image2, caption: "cap2" },
   ];
+
   return (
     <div>
       <Navbar />
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
+      <Grid
+        container
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Grid>
           <Paper>
-            <Avatar src={image1} />
-            <Typography variant="h6">{user.username}</Typography>
-            <div>
-              <Typography variant="subtitle1">
-                <strong>{posts.length}</strong> posts
-              </Typography>
-              <Typography variant="subtitle1">
-                <strong>{user.followers}</strong> followers
-              </Typography>
-              <Typography variant="subtitle1">
-                <strong>{user.following}</strong> following
-              </Typography>
-            </div>
+            <Grid
+              container
+              direction="row"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Grid>
+                <Avatar src={image1} />
+              </Grid>
+              <Grid>
+                <Grid
+                  container
+                  direction="column"
+                  alignItems="center"
+                  justifyContent="center"
+                >
+                  <Grid>
+                    <h1>Dylan Picus</h1>
+                  </Grid>
+                  <Grid
+                    container
+                    direction="row"
+                    alignItems="center"
+                    justifyContent="center"
+                  >
+                    <Grid>
+                      <h2>15 Posts</h2>
+                    </Grid>
+                    <Grid>
+                      <h2>60 Followers</h2>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
           </Paper>
         </Grid>
-        {posts.map((post) => (
-          <Grid key={post.id} item xs={4}>
-            <img src={post.imageUrl} alt={post.caption} />
-          </Grid>
-        ))}
+        <Grid>
+          <Paper>
+            <Grid
+              container
+              direction="column"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Grid>
+                <h2>Boulderer</h2>
+              </Grid>
+              <Grid>
+                <h2>Highest Grade: 7A</h2>
+              </Grid>
+              <Grid>
+                <h2>"Je doet niks"</h2>
+              </Grid>
+            </Grid>
+          </Paper>
+        </Grid>
+
+        <Grid>
+          <Paper>
+            <Grid
+              container
+              direction="row"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Grid>
+                <h2>Posts:</h2>
+              </Grid>
+              <Grid
+                container
+                direction="column"
+                alignItems="center"
+                justifyContent="center"
+              >
+                <Grid>
+                  <h2>Post 1</h2>
+                </Grid>
+                <Grid>
+                  <h2>Post 2</h2>
+                </Grid>
+                <Grid>
+                  <h2>Post 3</h2>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Paper>
+        </Grid>
       </Grid>
     </div>
   );

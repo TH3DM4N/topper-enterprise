@@ -17,7 +17,15 @@ const Navbar = ({ signOut }) => {
   }
 
   function navigateHomePage() {
-    navigate("/");
+    navigate("/home");
+  }
+
+  function navigateProfilePage() {
+    navigate("/profile");
+  }
+
+  function navigateSearchUserPage() {
+    navigate("/search");
   }
   return (
     <AppBar position="static">
@@ -43,6 +51,12 @@ const Navbar = ({ signOut }) => {
         </Button>
         <Button color="inherit" onClick={navigateHomePage}>
           Home
+        </Button>
+        <Button color="inherit" onClick={navigateProfilePage}>
+          Profile
+        </Button>
+        <Button color="inherit" onClick={navigateSearchUserPage}>
+          Search
         </Button>
       </Toolbar>
     </AppBar>

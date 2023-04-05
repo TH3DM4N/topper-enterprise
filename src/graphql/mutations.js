@@ -9,8 +9,10 @@ export const createUser = /* GraphQL */ `
     createUser(input: $input, condition: $condition) {
       id
       name
-      description
-      profile_picture
+      username
+      bio
+      discipline
+      profileImage
       createdAt
       updatedAt
     }
@@ -24,8 +26,10 @@ export const updateUser = /* GraphQL */ `
     updateUser(input: $input, condition: $condition) {
       id
       name
-      description
-      profile_picture
+      username
+      bio
+      discipline
+      profileImage
       createdAt
       updatedAt
     }
@@ -39,8 +43,10 @@ export const deleteUser = /* GraphQL */ `
     deleteUser(input: $input, condition: $condition) {
       id
       name
-      description
-      profile_picture
+      username
+      bio
+      discipline
+      profileImage
       createdAt
       updatedAt
     }

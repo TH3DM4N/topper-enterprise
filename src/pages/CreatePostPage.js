@@ -45,7 +45,7 @@ function CreatePostPage() {
 
     await Storage.put(imageName, selectedImage);
 
-    navigate("/");
+    navigate("/home");
   }
 
   return (

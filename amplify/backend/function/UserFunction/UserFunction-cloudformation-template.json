@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "{\"createdOn\":\"Mac\",\"createdBy\":\"Amplify\",\"createdWith\":\"10.8.1\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
+  "Description": "{\"createdOn\":\"Mac\",\"createdBy\":\"Amplify\",\"createdWith\":\"11.0.3\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
   "Parameters": {
     "CloudWatchRule": {
       "Type": "String",
@@ -47,12 +47,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "UserProfileFunction",
+            "UserFunction",
             {
               "Fn::Join": [
                 "",
                 [
-                  "UserProfileFunction",
+                  "UserFunction",
                   "-",
                   {
                     "Ref": "env"
@@ -78,7 +78,7 @@
             "Arn"
           ]
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs16.x",
         "Layers": [],
         "Timeout": 25
       }
@@ -89,12 +89,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "topperenterpriseLambdaRoleb69da3ad",
+            "topperenterpriseLambdaRoleb54697ec",
             {
               "Fn::Join": [
                 "",
                 [
-                  "topperenterpriseLambdaRoleb69da3ad",
+                  "topperenterpriseLambdaRoleb54697ec",
                   "-",
                   {
                     "Ref": "env"

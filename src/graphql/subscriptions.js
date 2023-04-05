@@ -6,8 +6,10 @@ export const onCreateUser = /* GraphQL */ `
     onCreateUser(filter: $filter) {
       id
       name
-      description
-      profile_picture
+      username
+      bio
+      discipline
+      profileImage
       createdAt
       updatedAt
     }
@@ -18,8 +20,10 @@ export const onUpdateUser = /* GraphQL */ `
     onUpdateUser(filter: $filter) {
       id
       name
-      description
-      profile_picture
+      username
+      bio
+      discipline
+      profileImage
       createdAt
       updatedAt
     }
@@ -30,8 +34,10 @@ export const onDeleteUser = /* GraphQL */ `
     onDeleteUser(filter: $filter) {
       id
       name
-      description
-      profile_picture
+      username
+      bio
+      discipline
+      profileImage
       createdAt
       updatedAt
     }

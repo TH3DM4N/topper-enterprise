@@ -1,65 +1,79 @@
 export type AmplifyDependentResourcesAttributes = {
-    "api": {
-        "topperenterprise": {
-            "GraphQLAPIKeyOutput": "string",
-            "GraphQLAPIIdOutput": "string",
-            "GraphQLAPIEndpointOutput": "string"
-        }
-    },
-    "auth": {
-        "topperenterprise035e9d74": {
-            "IdentityPoolId": "string",
-            "IdentityPoolName": "string",
-            "HostedUIDomain": "string",
-            "OAuthMetadata": "string",
-            "UserPoolId": "string",
-            "UserPoolArn": "string",
-            "UserPoolName": "string",
-            "AppClientIDWeb": "string",
-            "AppClientID": "string"
-        }
-    },
-    "function": {
-        "PostFunction": {
-            "Name": "string",
-            "Arn": "string",
-            "Region": "string",
-            "LambdaExecutionRole": "string",
-            "LambdaExecutionRoleArn": "string"
-        },
-        "FeedFunction": {
-            "Name": "string",
-            "Arn": "string",
-            "Region": "string",
-            "LambdaExecutionRole": "string",
-            "LambdaExecutionRoleArn": "string"
-        },
-        "FollowFunction": {
-            "Name": "string",
-            "Arn": "string",
-            "Region": "string",
-            "LambdaExecutionRole": "string",
-            "LambdaExecutionRoleArn": "string"
-        },
-        "UserProfileFunction": {
-            "Name": "string",
-            "Arn": "string",
-            "Region": "string",
-            "LambdaExecutionRole": "string",
-            "LambdaExecutionRoleArn": "string"
-        },
-        "Gateway": {
-            "Name": "string",
-            "Arn": "string",
-            "Region": "string",
-            "LambdaExecutionRole": "string",
-            "LambdaExecutionRoleArn": "string"
-        }
-    },
-    "storage": {
-        "postImages": {
-            "BucketName": "string",
-            "Region": "string"
-        }
+  "api": {
+    "topperenterprise": {
+      "GraphQLAPIEndpointOutput": "string",
+      "GraphQLAPIIdOutput": "string",
+      "GraphQLAPIKeyOutput": "string"
     }
+  },
+  "auth": {
+    "topperenterprise7e028f52": {
+      "AppClientID": "string",
+      "AppClientIDWeb": "string",
+      "HostedUIDomain": "string",
+      "IdentityPoolId": "string",
+      "IdentityPoolName": "string",
+      "OAuthMetadata": "string",
+      "UserPoolArn": "string",
+      "UserPoolId": "string",
+      "UserPoolName": "string"
+    }
+  },
+  "function": {
+    "CommentFunction": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "FollowFunction": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "Gateway": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "LikeFunction": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "PostFunction": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "StorageFunction": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "UserFunction": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    }
+  },
+  "storage": {
+    "postImages": {
+      "BucketName": "string",
+      "Region": "string"
+    }
+  }
 }

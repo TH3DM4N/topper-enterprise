@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "topperenterprise035e9d74_identitypool_035e9d74",
-    "allowUnauthenticatedIdentities": true,
-    "resourceNameTruncated": "topper035e9d74",
-    "userPoolName": "topperenterprise035e9d74_userpool_035e9d74",
+    "identityPoolName": "topperenterprise7e028f52_identitypool_7e028f52",
+    "allowUnauthenticatedIdentities": false,
+    "resourceNameTruncated": "topper7e028f52",
+    "userPoolName": "topperenterprise7e028f52_userpool_7e028f52",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -27,15 +27,23 @@
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [],
     "userpoolClientReadAttributes": [],
-    "userpoolClientLambdaRole": "topper035e9d74_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "topper7e028f52_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "035e9d74",
-    "resourceName": "topperenterprise035e9d74",
+    "sharedId": "7e028f52",
+    "resourceName": "topperenterprise7e028f52",
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "manual",
+    "hostedUI": true,
     "usernameAttributes": [
       "email"
     ],
+    "triggers": {},
+    "hostedUIDomainName": "topperauth",
+    "authProvidersUserPool": [
+      "Google"
+    ],
+    "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\"],\"LogoutURLs\":[\"http://localhost:3000/\"]}",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
@@ -58,12 +66,9 @@
     "adminQueries": false,
     "thirdPartyAuth": false,
     "authProviders": [],
-    "hostedUI": true,
-    "hostedUIDomainName": "jsp6gntl4cwo",
-    "authProvidersUserPool": [
-      "Google"
-    ],
-    "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\"],\"LogoutURLs\":[\"http://localhost:3000/\"]}"
+    "parentStack": {
+      "Ref": "AWS::StackId"
+    },
+    "permissions": []
   }
 }
