@@ -9,7 +9,8 @@
       "UnauthRoleName": "amplify-amplify24ade9bc59944-staging-144316-unauthRole",
       "StackName": "amplify-amplify24ade9bc59944-staging-144316",
       "StackId": "arn:aws:cloudformation:eu-central-1:325510795379:stack/amplify-amplify24ade9bc59944-staging-144316/eab2c950-ac75-11ed-8d86-0a09ba1196ea",
-      "AmplifyAppId": "dgxkcqc1r0ejr"
+      "AmplifyAppId": "dgxkcqc1r0ejr",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-amplify24ade9bc59944-staging-144316-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "auth": {
@@ -18,24 +19,21 @@
         "topperenterprise7e028f52": {}
       },
       "api": {
-        "topperenterprise": {}
+        "topperenterprise": {},
+        "topperGateway": {}
       },
       "function": {
-        "PostFunction": {
-          "deploymentBucketName": "amplify-amplify24ade9bc59944-staging-144316-deployment",
-          "s3Key": "amplify-builds/PostFunction-4c343865316d57735175-build.zip"
-        },
         "FollowFunction": {
           "deploymentBucketName": "amplify-amplify24ade9bc59944-staging-144316-deployment",
-          "s3Key": "amplify-builds/FollowFunction-6f62567649796a4f4e46-build.zip"
+          "s3Key": "amplify-builds/FollowFunction-484c763134337034684c-build.zip"
         },
         "CommentFunction": {
           "deploymentBucketName": "amplify-amplify24ade9bc59944-staging-144316-deployment",
-          "s3Key": "amplify-builds/CommentFunction-47795967494f47744949-build.zip"
+          "s3Key": "amplify-builds/CommentFunction-345630566c39774a6341-build.zip"
         },
         "LikeFunction": {
           "deploymentBucketName": "amplify-amplify24ade9bc59944-staging-144316-deployment",
-          "s3Key": "amplify-builds/LikeFunction-6830632b474967434352-build.zip"
+          "s3Key": "amplify-builds/LikeFunction-6753636c696532503378-build.zip"
         },
         "StorageFunction": {
           "deploymentBucketName": "amplify-amplify24ade9bc59944-staging-144316-deployment",
@@ -43,11 +41,11 @@
         },
         "UserFunction": {
           "deploymentBucketName": "amplify-amplify24ade9bc59944-staging-144316-deployment",
-          "s3Key": "amplify-builds/UserFunction-416e68487970504d7345-build.zip"
+          "s3Key": "amplify-builds/UserFunction-386949505758642f7963-build.zip"
         },
-        "Gateway": {
+        "PostFunction": {
           "deploymentBucketName": "amplify-amplify24ade9bc59944-staging-144316-deployment",
-          "s3Key": "amplify-builds/Gateway-614756306b47554f7873-build.zip"
+          "s3Key": "amplify-builds/PostFunction-744363614d4d6262526d-build.zip"
         }
       },
       "storage": {

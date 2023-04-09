@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "{\"createdOn\":\"Mac\",\"createdBy\":\"Amplify\",\"createdWith\":\"10.8.1\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
+  "Description": "Lambda Function resource stack creation using Amplify CLI",
   "Parameters": {
     "CloudWatchRule": {
       "Type": "String",
@@ -15,6 +15,22 @@
     },
     "s3Key": {
       "Type": "String"
+    },
+    "apitopperenterpriseGraphQLAPIIdOutput": {
+      "Type": "String",
+      "Default": "apitopperenterpriseGraphQLAPIIdOutput"
+    },
+    "apitopperenterpriseGraphQLAPIEndpointOutput": {
+      "Type": "String",
+      "Default": "apitopperenterpriseGraphQLAPIEndpointOutput"
+    },
+    "apitopperenterpriseGraphQLAPIKeyOutput": {
+      "Type": "String",
+      "Default": "apitopperenterpriseGraphQLAPIKeyOutput"
+    },
+    "storagepostImagesBucketName": {
+      "Type": "String",
+      "Default": "storagepostImagesBucketName"
     }
   },
   "Conditions": {
@@ -69,6 +85,18 @@
             },
             "REGION": {
               "Ref": "AWS::Region"
+            },
+            "API_TOPPERENTERPRISE_GRAPHQLAPIIDOUTPUT": {
+              "Ref": "apitopperenterpriseGraphQLAPIIdOutput"
+            },
+            "API_TOPPERENTERPRISE_GRAPHQLAPIENDPOINTOUTPUT": {
+              "Ref": "apitopperenterpriseGraphQLAPIEndpointOutput"
+            },
+            "API_TOPPERENTERPRISE_GRAPHQLAPIKEYOUTPUT": {
+              "Ref": "apitopperenterpriseGraphQLAPIKeyOutput"
+            },
+            "STORAGE_POSTIMAGES_BUCKETNAME": {
+              "Ref": "storagepostImagesBucketName"
             }
           }
         },
@@ -78,7 +106,7 @@
             "Arn"
           ]
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs16.x",
         "Layers": [],
         "Timeout": 25
       }
@@ -89,12 +117,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "topperenterpriseLambdaRole122ab383",
+            "topperenterpriseLambdaRole1927311d",
             {
               "Fn::Join": [
                 "",
                 [
-                  "topperenterpriseLambdaRole122ab383",
+                  "topperenterpriseLambdaRole1927311d",
                   "-",
                   {
                     "Ref": "env"
@@ -160,6 +188,112 @@
                   }
                 ]
               }
+            }
+          ]
+        }
+      }
+    },
+    "AmplifyResourcesPolicy": {
+      "DependsOn": [
+        "LambdaExecutionRole"
+      ],
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "amplify-lambda-execution-policy",
+        "Roles": [
+          {
+            "Ref": "LambdaExecutionRole"
+          }
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "appsync:GraphQL"
+              ],
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:appsync:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":apis/",
+                      {
+                        "Ref": "apitopperenterpriseGraphQLAPIIdOutput"
+                      },
+                      "/types/Query/*"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:appsync:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":apis/",
+                      {
+                        "Ref": "apitopperenterpriseGraphQLAPIIdOutput"
+                      },
+                      "/types/Mutation/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": "s3:ListBucket",
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::",
+                      {
+                        "Ref": "storagepostImagesBucketName"
+                      }
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:DeleteObject"
+              ],
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::",
+                      {
+                        "Ref": "storagepostImagesBucketName"
+                      },
+                      "/*"
+                    ]
+                  ]
+                }
+              ]
             }
           ]
         }

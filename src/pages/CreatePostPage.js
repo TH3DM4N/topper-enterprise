@@ -1,13 +1,12 @@
-import { Grid } from "@mui/material";
-import { Button, TextField, Box } from "@mui/material";
-import Paper from "@mui/material/Paper";
-import { styled } from "@mui/material/styles";
+import { Button, TextField, Box, Grid, Paper } from "@mui/material";
+
 import Navbar from "../components/AppBar";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import { API, Auth, Storage } from "aws-amplify";
-import { createPost as createPostMutation } from "../graphql/mutations";
+
+import { Auth, Storage } from "aws-amplify";
+import { createpost } from "../api/post/create_post";
 
 function CreatePostPage() {
   const navigate = useNavigate();
@@ -38,10 +37,7 @@ function CreatePostPage() {
       userId: user.attributes.sub,
     };
 
-    await API.graphql({
-      query: createPostMutation,
-      variables: { input: data },
-    });
+    await createpost("/post", data);
 
     await Storage.put(imageName, selectedImage);
 

@@ -25,7 +25,6 @@ function Feed() {
     const postsFromAPI = apiData.data.listPosts.items;
     setPosts(postsFromAPI);
     setIsLoading(false);
-    console.log(posts);
   }
 
   return (

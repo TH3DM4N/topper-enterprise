@@ -1,18 +1,19 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { View, withAuthenticator } from "@aws-amplify/ui-react";
-import { Button, TextField, Box } from "@mui/material";
-
-import { Auth, API } from "aws-amplify";
 import { useNavigate } from "react-router-dom";
-import { getUser } from "../graphql/queries";
-import { createUser as createUserMutation } from "../graphql/mutations";
+
+import { withAuthenticator } from "@aws-amplify/ui-react";
+import { Button, TextField } from "@mui/material";
+
+import { Auth } from "aws-amplify";
+
+import { createuser } from "../api/onboarding/create_user";
+import { getuser } from "../api/onboarding/get_user";
 
 function OnBoardPage() {
   const navigate = useNavigate();
-  const [id, setId] = useState();
   const [isLoading, setIsLoading] = useState(true);
-
+  const [id, setId] = useState();
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [bio, setBio] = useState("");
@@ -22,20 +23,17 @@ function OnBoardPage() {
     async function fetchUser() {
       const user = await Auth.currentAuthenticatedUser();
       const userId = user.attributes.sub;
+      const resp = await getuser("/user/" + userId);
+      console.log(resp);
 
-      const apiData = await API.graphql({
-        query: getUser,
-        variables: { id: userId },
-      });
-      const userData = apiData.data.getUser;
-      if (userData) {
+      if (resp.data.getUser != null) {
         navigate("/home");
       }
       setId(userId);
       setIsLoading(false);
     }
     fetchUser();
-  }, []);
+  }, [navigate]);
 
   async function createUser(e) {
     e.preventDefault();
@@ -47,15 +45,11 @@ function OnBoardPage() {
       discipline: discipline,
     };
 
-    await API.graphql({
-      query: createUserMutation,
-      variables: { input: userData },
-    });
+    await createuser("/user", userData);
     navigate("/home");
   }
 
   if (isLoading) {
-    //setloading turnunit
     return <p>Loading...</p>;
   }
 

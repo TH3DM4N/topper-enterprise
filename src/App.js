@@ -9,7 +9,7 @@ import CreatePostPage from "./pages/CreatePostPage";
 import OnBoardPage from "./pages/OnBoardPage";
 
 import { Routes, Route } from "react-router-dom";
-import SearchUsers from "./pages/SearchUsers";
+import SearchUsersPage from "./pages/SearchUsersPage";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
       <Route path="/home" element={<HomePage />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/createpost" element={<CreatePostPage />} />
-      <Route path="/search" element={<SearchUsers />} />
+      <Route path="/search" element={<SearchUsersPage />} />
     </Routes>
   );
 }

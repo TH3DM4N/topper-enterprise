@@ -3,7 +3,7 @@
 input AMPLIFY {
   globalAuthRule: AuthRule = { allow: public }
 }
-type User @model {
+type User @model @searchable {
   id: ID!
   name: String!
   username: String
@@ -12,13 +12,13 @@ type User @model {
   profileImage: String
 }
 
-type Relation @model {
+type Relation @model @searchable {
   id: ID!
   requesterId: String!
   receiverId: String!
 }
 
-type Post @model {
+type Post @model @searchable {
   id: ID!
   title: String!
   image: String!
@@ -26,16 +26,16 @@ type Post @model {
   location: String!
   userId: String!
   commentsIds: [String]
+  likeIds: [String]
 }
 
-type Comment @model {
+type Comment @model @searchable {
   id: ID!
   content: String!
   userId: String!
 }
 
-type Like @model {
+type Like @model @searchable {
   id: ID!
   userId: String!
-  postId: String!
 }

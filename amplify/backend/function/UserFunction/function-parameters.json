@@ -1,3 +1,19 @@
 {
-  "lambdaLayers": []
+  "lambdaLayers": [],
+  "permissions": {
+    "api": {
+      "topperenterprise": [
+        "Query",
+        "Mutation"
+      ]
+    },
+    "storage": {
+      "postImages": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  }
 }
