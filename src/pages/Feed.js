@@ -8,9 +8,6 @@ import { listPosts } from "../graphql/queries";
 import Post from "../components/Post";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import { Box } from "@mui/system";
-import { Grid } from "@mui/material";
-
 function Feed() {
   const matches = useMediaQuery("(min-width:600)");
   const [posts, setPosts] = useState([]);
