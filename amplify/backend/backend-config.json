@@ -89,6 +89,8 @@
           "EMAIL"
         ]
       },
+      "googleAppIdUserPool": "714426387837-163t1s2emjuad0ajonk5sv7sm5fnrlmi.apps.googleusercontent.com",
+      "googleAppSecretUserPool": "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",
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
     }
@@ -192,104 +194,6 @@
       ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
-    }
-  },
-  "parameters": {
-    "AMPLIFY_function_CommentFunction_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "CommentFunction"
-        }
-      ]
-    },
-    "AMPLIFY_function_CommentFunction_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "CommentFunction"
-        }
-      ]
-    },
-    "AMPLIFY_function_FollowFunction_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "FollowFunction"
-        }
-      ]
-    },
-    "AMPLIFY_function_FollowFunction_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "FollowFunction"
-        }
-      ]
-    },
-    "AMPLIFY_function_LikeFunction_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "LikeFunction"
-        }
-      ]
-    },
-    "AMPLIFY_function_LikeFunction_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "LikeFunction"
-        }
-      ]
-    },
-    "AMPLIFY_function_PostFunction_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "PostFunction"
-        }
-      ]
-    },
-    "AMPLIFY_function_PostFunction_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "PostFunction"
-        }
-      ]
-    },
-    "AMPLIFY_function_StorageFunction_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "StorageFunction"
-        }
-      ]
-    },
-    "AMPLIFY_function_StorageFunction_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "StorageFunction"
-        }
-      ]
-    },
-    "AMPLIFY_function_UserFunction_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "UserFunction"
-        }
-      ]
-    },
-    "AMPLIFY_function_UserFunction_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "UserFunction"
-        }
-      ]
     }
   },
   "storage": {
