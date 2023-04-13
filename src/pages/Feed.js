@@ -6,7 +6,6 @@ import { API } from "aws-amplify";
 import { listPosts } from "../graphql/queries";
 
 import Post from "../components/Post";
-import useMediaQuery from "@mui/material/useMediaQuery";
 
 function Feed() {
   const [posts, setPosts] = useState([]);
