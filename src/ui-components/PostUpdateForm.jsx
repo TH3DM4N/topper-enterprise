@@ -199,6 +199,7 @@ export default function PostUpdateForm(props) {
     location: "",
     userId: "",
     commentsIds: [],
+    likeIds: [],
   };
   const [title, setTitle] = React.useState(initialValues.title);
   const [image, setImage] = React.useState(initialValues.image);
@@ -208,6 +209,7 @@ export default function PostUpdateForm(props) {
   const [commentsIds, setCommentsIds] = React.useState(
     initialValues.commentsIds
   );
+  const [likeIds, setLikeIds] = React.useState(initialValues.likeIds);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = postRecord
@@ -220,6 +222,8 @@ export default function PostUpdateForm(props) {
     setUserId(cleanValues.userId);
     setCommentsIds(cleanValues.commentsIds ?? []);
     setCurrentCommentsIdsValue("");
+    setLikeIds(cleanValues.likeIds ?? []);
+    setCurrentLikeIdsValue("");
     setErrors({});
   };
   const [postRecord, setPostRecord] = React.useState(postModelProp);
@@ -236,6 +240,8 @@ export default function PostUpdateForm(props) {
   const [currentCommentsIdsValue, setCurrentCommentsIdsValue] =
     React.useState("");
   const commentsIdsRef = React.createRef();
+  const [currentLikeIdsValue, setCurrentLikeIdsValue] = React.useState("");
+  const likeIdsRef = React.createRef();
   const validations = {
     title: [{ type: "Required" }],
     image: [{ type: "Required" }],
@@ -243,6 +249,7 @@ export default function PostUpdateForm(props) {
     location: [{ type: "Required" }],
     userId: [{ type: "Required" }],
     commentsIds: [],
+    likeIds: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -276,6 +283,7 @@ export default function PostUpdateForm(props) {
           location,
           userId,
           commentsIds,
+          likeIds,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -337,6 +345,7 @@ export default function PostUpdateForm(props) {
               location,
               userId,
               commentsIds,
+              likeIds,
             };
             const result = onChange(modelFields);
             value = result?.title ?? value;
@@ -366,6 +375,7 @@ export default function PostUpdateForm(props) {
               location,
               userId,
               commentsIds,
+              likeIds,
             };
             const result = onChange(modelFields);
             value = result?.image ?? value;
@@ -395,6 +405,7 @@ export default function PostUpdateForm(props) {
               location,
               userId,
               commentsIds,
+              likeIds,
             };
             const result = onChange(modelFields);
             value = result?.grade ?? value;
@@ -424,6 +435,7 @@ export default function PostUpdateForm(props) {
               location: value,
               userId,
               commentsIds,
+              likeIds,
             };
             const result = onChange(modelFields);
             value = result?.location ?? value;
@@ -453,6 +465,7 @@ export default function PostUpdateForm(props) {
               location,
               userId: value,
               commentsIds,
+              likeIds,
             };
             const result = onChange(modelFields);
             value = result?.userId ?? value;
@@ -478,6 +491,7 @@ export default function PostUpdateForm(props) {
               location,
               userId,
               commentsIds: values,
+              likeIds,
             };
             const result = onChange(modelFields);
             values = result?.commentsIds ?? values;
@@ -514,6 +528,54 @@ export default function PostUpdateForm(props) {
           ref={commentsIdsRef}
           labelHidden={true}
           {...getOverrideProps(overrides, "commentsIds")}
+        ></TextField>
+      </ArrayField>
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
+          if (onChange) {
+            const modelFields = {
+              title,
+              image,
+              grade,
+              location,
+              userId,
+              commentsIds,
+              likeIds: values,
+            };
+            const result = onChange(modelFields);
+            values = result?.likeIds ?? values;
+          }
+          setLikeIds(values);
+          setCurrentLikeIdsValue("");
+        }}
+        currentFieldValue={currentLikeIdsValue}
+        label={"Like ids"}
+        items={likeIds}
+        hasError={errors?.likeIds?.hasError}
+        errorMessage={errors?.likeIds?.errorMessage}
+        setFieldValue={setCurrentLikeIdsValue}
+        inputFieldRef={likeIdsRef}
+        defaultFieldValue={""}
+      >
+        <TextField
+          label="Like ids"
+          isRequired={false}
+          isReadOnly={false}
+          value={currentLikeIdsValue}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (errors.likeIds?.hasError) {
+              runValidationTasks("likeIds", value);
+            }
+            setCurrentLikeIdsValue(value);
+          }}
+          onBlur={() => runValidationTasks("likeIds", currentLikeIdsValue)}
+          errorMessage={errors.likeIds?.errorMessage}
+          hasError={errors.likeIds?.hasError}
+          ref={likeIdsRef}
+          labelHidden={true}
+          {...getOverrideProps(overrides, "likeIds")}
         ></TextField>
       </ArrayField>
       <Flex

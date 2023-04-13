@@ -3,42 +3,27 @@
     "topperGateway": {
       "dependsOn": [
         {
-          "attributes": [
-            "Name",
-            "Arn"
-          ],
+          "attributes": ["Name", "Arn"],
           "category": "function",
           "resourceName": "UserFunction"
         },
         {
-          "attributes": [
-            "Name",
-            "Arn"
-          ],
+          "attributes": ["Name", "Arn"],
           "category": "function",
           "resourceName": "LikeFunction"
         },
         {
-          "attributes": [
-            "Name",
-            "Arn"
-          ],
+          "attributes": ["Name", "Arn"],
           "category": "function",
           "resourceName": "FollowFunction"
         },
         {
-          "attributes": [
-            "Name",
-            "Arn"
-          ],
+          "attributes": ["Name", "Arn"],
           "category": "function",
           "resourceName": "CommentFunction"
         },
         {
-          "attributes": [
-            "Name",
-            "Arn"
-          ],
+          "attributes": ["Name", "Arn"],
           "category": "function",
           "resourceName": "PostFunction"
         }
@@ -69,28 +54,16 @@
       "dependsOn": [],
       "frontendAuthConfig": {
         "mfaConfiguration": "OFF",
-        "mfaTypes": [
-          "SMS"
-        ],
+        "mfaTypes": ["SMS"],
         "passwordProtectionSettings": {
           "passwordPolicyCharacters": [],
           "passwordPolicyMinLength": 8
         },
-        "signupAttributes": [
-          "EMAIL"
-        ],
-        "socialProviders": [
-          "GOOGLE"
-        ],
-        "usernameAttributes": [
-          "EMAIL"
-        ],
-        "verificationMechanisms": [
-          "EMAIL"
-        ]
+        "signupAttributes": ["EMAIL"],
+        "socialProviders": ["GOOGLE"],
+        "usernameAttributes": ["EMAIL"],
+        "verificationMechanisms": ["EMAIL"]
       },
-      "googleAppIdUserPool": "714426387837-163t1s2emjuad0ajonk5sv7sm5fnrlmi.apps.googleusercontent.com",
-      "googleAppSecretUserPool": "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",
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
     }
@@ -157,9 +130,7 @@
           "resourceName": "topperenterprise"
         },
         {
-          "attributes": [
-            "BucketName"
-          ],
+          "attributes": ["BucketName"],
           "category": "storage",
           "resourceName": "postImages"
         }
@@ -185,15 +156,111 @@
           "resourceName": "topperenterprise"
         },
         {
-          "attributes": [
-            "BucketName"
-          ],
+          "attributes": ["BucketName"],
           "category": "storage",
           "resourceName": "postImages"
         }
       ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_CommentFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "CommentFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_CommentFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "CommentFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_FollowFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "FollowFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_FollowFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "FollowFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_LikeFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "LikeFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_LikeFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "LikeFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_PostFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "PostFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_PostFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "PostFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_StorageFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "StorageFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_StorageFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "StorageFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_UserFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "UserFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_UserFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "UserFunction"
+        }
+      ]
     }
   },
   "storage": {

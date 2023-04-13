@@ -14,17 +14,14 @@ export declare type ValidationResponse = {
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
 export declare type LikeCreateFormInputValues = {
     userId?: string;
-    postId?: string;
 };
 export declare type LikeCreateFormValidationValues = {
     userId?: ValidationFunction<string>;
-    postId?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type LikeCreateFormOverridesProps = {
     LikeCreateFormGrid?: PrimitiveOverrideProps<GridProps>;
     userId?: PrimitiveOverrideProps<TextFieldProps>;
-    postId?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type LikeCreateFormProps = React.PropsWithChildren<{
     overrides?: LikeCreateFormOverridesProps | undefined | null;
