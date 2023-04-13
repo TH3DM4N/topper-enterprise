@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "@aws-amplify/ui-react/styles.css";
-import { View, withAuthenticator } from "@aws-amplify/ui-react";
+import { withAuthenticator } from "@aws-amplify/ui-react";
 import { API } from "aws-amplify";
 import { listPosts } from "../graphql/queries";
 
@@ -9,7 +9,6 @@ import Post from "../components/Post";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 function Feed() {
-  const matches = useMediaQuery("(min-width:600)");
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
