@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Button, View, withAuthenticator } from "@aws-amplify/ui-react";
+import { Button, withAuthenticator } from "@aws-amplify/ui-react";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import Navbar from "../components/AppBar";
 import {
