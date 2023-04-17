@@ -76,6 +76,7 @@ async function createPost(post) {
         grade
         userId
         commentsIds
+        likeIds
       }
     }
   `;

@@ -93,7 +93,33 @@ async function createFollow(follow) {
     console.log(err);
   }
 }
-async function getFollow() {}
+
+async function getFollow(id) {
+  const query = /* GraphQL */ `
+      query SearchRelation {
+        searchRelations(limit: 5, filter: { requesterId: { eq: "${id}" } }) {
+          items {
+            id
+            receiverId
+          }
+        }
+      }
+    `;
+  try {
+    const options = {
+      method: "POST",
+      url: GRAPHQL_ENDPOINT,
+      headers: {
+        "x-api-key": GRAPHQL_API_KEY,
+      },
+      data: JSON.stringify({ query }),
+    };
+    const response = await axios(options);
+    return response.data;
+  } catch {
+    console.log(error);
+  }
+}
 
 async function updateFollow() {}
 

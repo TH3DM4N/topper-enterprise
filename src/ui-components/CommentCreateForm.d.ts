@@ -15,16 +15,19 @@ export declare type ValidationFunction<T> = (value: T, validationResponse: Valid
 export declare type CommentCreateFormInputValues = {
     content?: string;
     userId?: string;
+    postId?: string;
 };
 export declare type CommentCreateFormValidationValues = {
     content?: ValidationFunction<string>;
     userId?: ValidationFunction<string>;
+    postId?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type CommentCreateFormOverridesProps = {
     CommentCreateFormGrid?: PrimitiveOverrideProps<GridProps>;
     content?: PrimitiveOverrideProps<TextFieldProps>;
     userId?: PrimitiveOverrideProps<TextFieldProps>;
+    postId?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type CommentCreateFormProps = React.PropsWithChildren<{
     overrides?: CommentCreateFormOverridesProps | undefined | null;

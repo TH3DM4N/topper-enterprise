@@ -25,18 +25,22 @@ export default function CommentCreateForm(props) {
   const initialValues = {
     content: "",
     userId: "",
+    postId: "",
   };
   const [content, setContent] = React.useState(initialValues.content);
   const [userId, setUserId] = React.useState(initialValues.userId);
+  const [postId, setPostId] = React.useState(initialValues.postId);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setContent(initialValues.content);
     setUserId(initialValues.userId);
+    setPostId(initialValues.postId);
     setErrors({});
   };
   const validations = {
     content: [{ type: "Required" }],
     userId: [{ type: "Required" }],
+    postId: [{ type: "Required" }],
   };
   const runValidationTasks = async (
     fieldName,
@@ -66,6 +70,7 @@ export default function CommentCreateForm(props) {
         let modelFields = {
           content,
           userId,
+          postId,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -122,6 +127,7 @@ export default function CommentCreateForm(props) {
             const modelFields = {
               content: value,
               userId,
+              postId,
             };
             const result = onChange(modelFields);
             value = result?.content ?? value;
@@ -147,6 +153,7 @@ export default function CommentCreateForm(props) {
             const modelFields = {
               content,
               userId: value,
+              postId,
             };
             const result = onChange(modelFields);
             value = result?.userId ?? value;
@@ -160,6 +167,32 @@ export default function CommentCreateForm(props) {
         errorMessage={errors.userId?.errorMessage}
         hasError={errors.userId?.hasError}
         {...getOverrideProps(overrides, "userId")}
+      ></TextField>
+      <TextField
+        label="Post id"
+        isRequired={true}
+        isReadOnly={false}
+        value={postId}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              content,
+              userId,
+              postId: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.postId ?? value;
+          }
+          if (errors.postId?.hasError) {
+            runValidationTasks("postId", value);
+          }
+          setPostId(value);
+        }}
+        onBlur={() => runValidationTasks("postId", postId)}
+        errorMessage={errors.postId?.errorMessage}
+        hasError={errors.postId?.hasError}
+        {...getOverrideProps(overrides, "postId")}
       ></TextField>
       <Flex
         justifyContent="space-between"

@@ -26,9 +26,11 @@ export default function CommentUpdateForm(props) {
   const initialValues = {
     content: "",
     userId: "",
+    postId: "",
   };
   const [content, setContent] = React.useState(initialValues.content);
   const [userId, setUserId] = React.useState(initialValues.userId);
+  const [postId, setPostId] = React.useState(initialValues.postId);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = commentRecord
@@ -36,6 +38,7 @@ export default function CommentUpdateForm(props) {
       : initialValues;
     setContent(cleanValues.content);
     setUserId(cleanValues.userId);
+    setPostId(cleanValues.postId);
     setErrors({});
   };
   const [commentRecord, setCommentRecord] = React.useState(commentModelProp);
@@ -52,6 +55,7 @@ export default function CommentUpdateForm(props) {
   const validations = {
     content: [{ type: "Required" }],
     userId: [{ type: "Required" }],
+    postId: [{ type: "Required" }],
   };
   const runValidationTasks = async (
     fieldName,
@@ -81,6 +85,7 @@ export default function CommentUpdateForm(props) {
         let modelFields = {
           content,
           userId,
+          postId,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -138,6 +143,7 @@ export default function CommentUpdateForm(props) {
             const modelFields = {
               content: value,
               userId,
+              postId,
             };
             const result = onChange(modelFields);
             value = result?.content ?? value;
@@ -163,6 +169,7 @@ export default function CommentUpdateForm(props) {
             const modelFields = {
               content,
               userId: value,
+              postId,
             };
             const result = onChange(modelFields);
             value = result?.userId ?? value;
@@ -176,6 +183,32 @@ export default function CommentUpdateForm(props) {
         errorMessage={errors.userId?.errorMessage}
         hasError={errors.userId?.hasError}
         {...getOverrideProps(overrides, "userId")}
+      ></TextField>
+      <TextField
+        label="Post id"
+        isRequired={true}
+        isReadOnly={false}
+        value={postId}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              content,
+              userId,
+              postId: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.postId ?? value;
+          }
+          if (errors.postId?.hasError) {
+            runValidationTasks("postId", value);
+          }
+          setPostId(value);
+        }}
+        onBlur={() => runValidationTasks("postId", postId)}
+        errorMessage={errors.postId?.errorMessage}
+        hasError={errors.postId?.hasError}
+        {...getOverrideProps(overrides, "postId")}
       ></TextField>
       <Flex
         justifyContent="space-between"

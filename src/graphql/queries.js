@@ -114,7 +114,6 @@ export const searchPosts = /* GraphQL */ `
         grade
         location
         userId
-        commentsIds
         createdAt
         updatedAt
       }
@@ -158,6 +157,7 @@ export const searchComments = /* GraphQL */ `
         id
         content
         userId
+        postId
         createdAt
         updatedAt
       }
@@ -296,7 +296,6 @@ export const getPost = /* GraphQL */ `
       grade
       location
       userId
-      commentsIds
       createdAt
       updatedAt
     }
@@ -316,7 +315,6 @@ export const listPosts = /* GraphQL */ `
         grade
         location
         userId
-        commentsIds
         createdAt
         updatedAt
       }
@@ -330,6 +328,7 @@ export const getComment = /* GraphQL */ `
       id
       content
       userId
+      postId
       createdAt
       updatedAt
     }
@@ -346,6 +345,7 @@ export const listComments = /* GraphQL */ `
         id
         content
         userId
+        postId
         createdAt
         updatedAt
       }

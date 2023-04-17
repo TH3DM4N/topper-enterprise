@@ -1,17 +1,27 @@
 import React from "react";
-import "../App.css";
-import "@aws-amplify/ui-react/styles.css";
-import { View, withAuthenticator } from "@aws-amplify/ui-react";
+import { Container, Grid } from "@mui/material";
 
-import Navbar from "../components/AppBar";
+import { withAuthenticator } from "@aws-amplify/ui-react";
+
 import Feed from "./Feed";
+import Menu from "../components/Menu";
+import Search from "../components/Search";
 
 function HomePage() {
   return (
-    <View className="App">
-      <Navbar />
-      <Feed />
-    </View>
+    <Container maxWidth="lg">
+      <Grid container spacing={3}>
+        <Grid item xs={3}>
+          <Menu />
+        </Grid>
+        <Grid item xs={6}>
+          <Feed />
+        </Grid>
+        <Grid item xs={3}>
+          <Search />
+        </Grid>
+      </Grid>
+    </Container>
   );
 }
 

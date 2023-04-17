@@ -85,7 +85,6 @@ export const onCreatePost = /* GraphQL */ `
       grade
       location
       userId
-      commentsIds
       createdAt
       updatedAt
     }
@@ -100,7 +99,6 @@ export const onUpdatePost = /* GraphQL */ `
       grade
       location
       userId
-      commentsIds
       createdAt
       updatedAt
     }
@@ -115,7 +113,6 @@ export const onDeletePost = /* GraphQL */ `
       grade
       location
       userId
-      commentsIds
       createdAt
       updatedAt
     }
@@ -127,6 +124,7 @@ export const onCreateComment = /* GraphQL */ `
       id
       content
       userId
+      postId
       createdAt
       updatedAt
     }
@@ -138,6 +136,7 @@ export const onUpdateComment = /* GraphQL */ `
       id
       content
       userId
+      postId
       createdAt
       updatedAt
     }
@@ -149,6 +148,7 @@ export const onDeleteComment = /* GraphQL */ `
       id
       content
       userId
+      postId
       createdAt
       updatedAt
     }

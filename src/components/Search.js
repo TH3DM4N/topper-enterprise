@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Button, withAuthenticator } from "@aws-amplify/ui-react";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import Navbar from "../components/AppBar";
 import {
   TextField,
   List,
@@ -16,7 +15,7 @@ import {
 import { Auth, API } from "aws-amplify";
 import { createfollow } from "../api/follow/create_follow";
 
-function SearchUsersPage() {
+const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [users, setUsers] = useState([]);
   const [authenticatedUserId, setAuthenticatedUserId] = useState(null);
@@ -85,18 +84,18 @@ function SearchUsersPage() {
 
   return (
     <div>
-      <Navbar />
+      <h2>Search</h2>
       <form onSubmit={handleSearchSubmit}>
         <TextField
-          label="Search users"
-          variant="outlined"
-          onChange={handleSearchChange}
           fullWidth
+          variant="outlined"
+          placeholder="Search for users..."
+          size="small"
+          onChange={handleSearchChange}
         />
       </form>
-
       {users.length === 0 ? (
-        <h3>buhh buhh</h3>
+        <h3>No user found</h3>
       ) : (
         users.map((user) => (
           <List>
@@ -120,6 +119,6 @@ function SearchUsersPage() {
       )}
     </div>
   );
-}
+};
 
-export default withAuthenticator(SearchUsersPage);
+export default withAuthenticator(Search);

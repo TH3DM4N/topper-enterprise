@@ -27,9 +27,9 @@ exports.handler = async (event) => {
     switch (routeKey) {
       case "POST /comment":
         data = JSON.parse(event.body);
-        let post = data.data;
+        let comment = data.data;
 
-        await createComment(post);
+        await createComment(comment);
         body = "comment created";
         break;
       case "GET /comment/{proxy+}":
@@ -59,9 +59,63 @@ exports.handler = async (event) => {
     headers,
   };
 };
-async function createComment() {}
+async function createComment(comment) {
+  const query = /* GraphQL */ `
+    mutation CreateComment($input: CreateCommentInput!) {
+      createComment(input: $input) {
+        id
+        content
+        userId
+        postId
+      }
+    }
+  `;
+  try {
+    const variables = {
+      input: comment,
+    };
+    const option = {
+      method: "POST",
+      url: GRAPHQL_ENDPOINT,
+      headers: {
+        "x-api-key": GRAPHQL_API_KEY,
+      },
+      data: JSON.stringify({ query, variables }),
+    };
+    await axios(option);
+  } catch (err) {
+    console.log(err);
+  }
+}
 
-async function getComment() {}
+async function getComment(id) {
+  const query = /* GraphQL */ `
+      query SearchComment {
+        searchComment(limit: 5, filter: { requesterId: { eq: "${id}" } }) {
+          items {
+            id
+            content
+            userId
+            postId
+          }
+        }
+      }
+    `;
+  try {
+    const options = {
+      method: "POST",
+      url: GRAPHQL_ENDPOINT,
+      headers: {
+        "x-api-key": GRAPHQL_API_KEY,
+      },
+      data: JSON.stringify({ query }),
+    };
+    const response = await axios(options);
+    return response.data;
+  } catch {
+    console.log(error);
+  }
+}
 
 async function updateComment() {}
 

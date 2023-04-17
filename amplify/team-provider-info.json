@@ -76,28 +76,84 @@
       "function": {
         "FollowFunction": {
           "deploymentBucketName": "amplify-amplify24ade9bc59944-staging-144316-deployment",
-          "s3Key": "amplify-builds/FollowFunction-484c763134337034684c-build.zip"
+          "s3Key": "amplify-builds/FollowFunction-444c46474837624c6d53-build.zip"
         },
         "CommentFunction": {
           "deploymentBucketName": "amplify-amplify24ade9bc59944-staging-144316-deployment",
-          "s3Key": "amplify-builds/CommentFunction-345630566c39774a6341-build.zip"
+          "s3Key": "amplify-builds/CommentFunction-6f6a376e636175366d51-build.zip"
         },
         "LikeFunction": {
           "deploymentBucketName": "amplify-amplify24ade9bc59944-staging-144316-deployment",
-          "s3Key": "amplify-builds/LikeFunction-6753636c696532503378-build.zip"
+          "s3Key": "amplify-builds/LikeFunction-7a57387233654b307061-build.zip"
         },
         "StorageFunction": {
           "deploymentBucketName": "amplify-amplify24ade9bc59944-staging-144316-deployment",
-          "s3Key": "amplify-builds/StorageFunction-42537a4d4a55412b476e-build.zip"
+          "s3Key": "amplify-builds/StorageFunction-596b50556338322b5a2b-build.zip"
         },
         "UserFunction": {
           "deploymentBucketName": "amplify-amplify24ade9bc59944-staging-144316-deployment",
-          "s3Key": "amplify-builds/UserFunction-386949505758642f7963-build.zip"
+          "s3Key": "amplify-builds/UserFunction-554159554d787333744e-build.zip"
         },
         "PostFunction": {
           "deploymentBucketName": "amplify-amplify24ade9bc59944-staging-144316-deployment",
-          "s3Key": "amplify-builds/PostFunction-744363614d4d6262526d-build.zip"
+          "s3Key": "amplify-builds/PostFunction-55523579666939695357-build.zip"
+        },
+        "topperenterprise": {},
+        "postImages": {}
+      },
+      "storage": {
+        "postImages": {}
+      }
+    }
+  },
+  "devdylan": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-topperenterprise-devdylan-113536-authRole",
+      "UnauthRoleArn": "arn:aws:iam::325510795379:role/amplify-topperenterprise-devdylan-113536-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::325510795379:role/amplify-topperenterprise-devdylan-113536-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-topperenterprise-devdylan-113536-deployment",
+      "UnauthRoleName": "amplify-topperenterprise-devdylan-113536-unauthRole",
+      "StackName": "amplify-topperenterprise-devdylan-113536",
+      "StackId": "arn:aws:cloudformation:eu-central-1:325510795379:stack/amplify-topperenterprise-devdylan-113536/618115f0-ddcc-11ed-9ff1-0664f1ed6350",
+      "AmplifyAppId": "dgxkcqc1r0ejr",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-topperenterprise-devdylan-113536-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "auth": {
+        "topperenterprise7e028f52": {}
+      },
+      "function": {
+        "CommentFunction": {
+          "deploymentBucketName": "amplify-topperenterprise-devdylan-113536-deployment",
+          "s3Key": "amplify-builds/CommentFunction-2f4b6539657875576a36-build.zip"
+        },
+        "FollowFunction": {
+          "deploymentBucketName": "amplify-topperenterprise-devdylan-113536-deployment",
+          "s3Key": "amplify-builds/FollowFunction-5451506b30386b543076-build.zip"
+        },
+        "LikeFunction": {
+          "deploymentBucketName": "amplify-topperenterprise-devdylan-113536-deployment",
+          "s3Key": "amplify-builds/LikeFunction-304f41776366467a6964-build.zip"
+        },
+        "PostFunction": {
+          "deploymentBucketName": "amplify-topperenterprise-devdylan-113536-deployment",
+          "s3Key": "amplify-builds/PostFunction-58376f2b575078524838-build.zip"
+        },
+        "UserFunction": {
+          "deploymentBucketName": "amplify-topperenterprise-devdylan-113536-deployment",
+          "s3Key": "amplify-builds/UserFunction-554159554d787333744e-build.zip"
+        },
+        "topperenterprise": {},
+        "postImages": {},
+        "ContentChecker": {
+          "deploymentBucketName": "amplify-topperenterprise-devdylan-113536-deployment",
+          "s3Key": "amplify-builds/ContentChecker-504466424b4e4251692b-build.zip"
         }
+      },
+      "api": {
+        "topperGateway": {},
+        "topperenterprise": {}
       },
       "storage": {
         "postImages": {}

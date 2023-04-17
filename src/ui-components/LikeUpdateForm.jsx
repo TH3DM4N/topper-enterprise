@@ -25,14 +25,17 @@ export default function LikeUpdateForm(props) {
   } = props;
   const initialValues = {
     userId: "",
+    postId: "",
   };
   const [userId, setUserId] = React.useState(initialValues.userId);
+  const [postId, setPostId] = React.useState(initialValues.postId);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = likeRecord
       ? { ...initialValues, ...likeRecord }
       : initialValues;
     setUserId(cleanValues.userId);
+    setPostId(cleanValues.postId);
     setErrors({});
   };
   const [likeRecord, setLikeRecord] = React.useState(likeModelProp);
@@ -48,6 +51,7 @@ export default function LikeUpdateForm(props) {
   React.useEffect(resetStateValues, [likeRecord]);
   const validations = {
     userId: [{ type: "Required" }],
+    postId: [{ type: "Required" }],
   };
   const runValidationTasks = async (
     fieldName,
@@ -76,6 +80,7 @@ export default function LikeUpdateForm(props) {
         event.preventDefault();
         let modelFields = {
           userId,
+          postId,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -132,6 +137,7 @@ export default function LikeUpdateForm(props) {
           if (onChange) {
             const modelFields = {
               userId: value,
+              postId,
             };
             const result = onChange(modelFields);
             value = result?.userId ?? value;
@@ -145,6 +151,31 @@ export default function LikeUpdateForm(props) {
         errorMessage={errors.userId?.errorMessage}
         hasError={errors.userId?.hasError}
         {...getOverrideProps(overrides, "userId")}
+      ></TextField>
+      <TextField
+        label="Post id"
+        isRequired={true}
+        isReadOnly={false}
+        value={postId}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              userId,
+              postId: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.postId ?? value;
+          }
+          if (errors.postId?.hasError) {
+            runValidationTasks("postId", value);
+          }
+          setPostId(value);
+        }}
+        onBlur={() => runValidationTasks("postId", postId)}
+        errorMessage={errors.postId?.errorMessage}
+        hasError={errors.postId?.hasError}
+        {...getOverrideProps(overrides, "postId")}
       ></TextField>
       <Flex
         justifyContent="space-between"

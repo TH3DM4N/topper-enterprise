@@ -110,6 +110,20 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "ContentChecker": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "BucketName"
+          ],
+          "category": "storage",
+          "resourceName": "postImages"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "FollowFunction": {
       "build": true,
       "dependsOn": [
@@ -165,11 +179,6 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
-    "StorageFunction": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
     "UserFunction": {
       "build": true,
       "dependsOn": [
@@ -194,6 +203,105 @@
       "service": "Lambda"
     }
   },
+  "parameters": {
+    "AMPLIFY_function_CommentFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "CommentFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_CommentFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "CommentFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_ContentChecker_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ContentChecker"
+        }
+      ]
+    },
+    "AMPLIFY_function_ContentChecker_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ContentChecker"
+        }
+      ]
+    },
+    "AMPLIFY_function_FollowFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "FollowFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_FollowFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "FollowFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_LikeFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "LikeFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_LikeFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "LikeFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_PostFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "PostFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_PostFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "PostFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_UserFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "UserFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_UserFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "UserFunction"
+        }
+      ]
+    }
+  },
+  "predictions": {},
   "storage": {
     "postImages": {
       "dependsOn": [],

@@ -47,9 +47,9 @@ export default function UserCreateForm(props) {
   };
   const validations = {
     name: [{ type: "Required" }],
-    username: [],
+    username: [{ type: "Required" }],
     bio: [],
-    discipline: [],
+    discipline: [{ type: "Required" }],
     profileImage: [],
   };
   const runValidationTasks = async (
@@ -158,7 +158,7 @@ export default function UserCreateForm(props) {
       ></TextField>
       <TextField
         label="Username"
-        isRequired={false}
+        isRequired={true}
         isReadOnly={false}
         value={username}
         onChange={(e) => {
@@ -214,7 +214,7 @@ export default function UserCreateForm(props) {
       ></TextField>
       <TextField
         label="Discipline"
-        isRequired={false}
+        isRequired={true}
         isReadOnly={false}
         value={discipline}
         onChange={(e) => {

@@ -26,9 +26,9 @@ exports.handler = async (event) => {
     switch (routeKey) {
       case "POST /like":
         data = JSON.parse(event.body);
-        let post = data.data;
+        let like = data.data;
 
-        await createLike(post);
+        await createLike(like);
         body = "Like created";
         break;
       case "GET /like/{proxy+}":
@@ -59,9 +59,61 @@ exports.handler = async (event) => {
   };
 };
 
-async function createLike() {}
+async function createLike(like) {
+  const query = /* GraphQL */ `
+    mutation CreateLike($input: CreateLikeInput!) {
+      createLike(input: $input) {
+        id
+        userId
+        postId
+      }
+    }
+  `;
+  try {
+    const variables = {
+      input: like,
+    };
+    const option = {
+      method: "POST",
+      url: GRAPHQL_ENDPOINT,
+      headers: {
+        "x-api-key": GRAPHQL_API_KEY,
+      },
+      data: JSON.stringify({ query, variables }),
+    };
+    await axios(option);
+  } catch (err) {
+    console.log(err);
+  }
+}
 
-async function getLike() {}
+async function getLike(id) {
+  const query = /* GraphQL */ `
+      query SearchLike {
+        searchLike(limit: 5, filter: { requesterId: { eq: "${id}" } }) {
+          items {
+            id
+            userId
+            postId
+          }
+        }
+      }
+    `;
+  try {
+    const options = {
+      method: "POST",
+      url: GRAPHQL_ENDPOINT,
+      headers: {
+        "x-api-key": GRAPHQL_API_KEY,
+      },
+      data: JSON.stringify({ query }),
+    };
+    const response = await axios(options);
+    return response.data;
+  } catch {
+    console.log(error);
+  }
+}
 
 async function updateLike() {}
 
