@@ -1,4 +1,55 @@
 {
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-topperenterprise-prod-131441-authRole",
+      "UnauthRoleArn": "arn:aws:iam::325510795379:role/amplify-topperenterprise-prod-131441-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::325510795379:role/amplify-topperenterprise-prod-131441-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-topperenterprise-prod-131441-deployment",
+      "UnauthRoleName": "amplify-topperenterprise-prod-131441-unauthRole",
+      "StackName": "amplify-topperenterprise-prod-131441",
+      "StackId": "arn:aws:cloudformation:eu-central-1:325510795379:stack/amplify-topperenterprise-prod-131441/269f70d0-d9fd-11ed-946c-06d7de8e78ac",
+      "AmplifyAppId": "dgxkcqc1r0ejr",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-topperenterprise-prod-131441-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "api": {
+        "topperenterprise": {}
+      },
+      "function": {
+        "CommentFunction": {
+          "deploymentBucketName": "amplify-topperenterprise-prod-131441-deployment",
+          "s3Key": "amplify-builds/CommentFunction-6f6a376e636175366d51-build.zip"
+        },
+        "FollowFunction": {
+          "deploymentBucketName": "amplify-topperenterprise-prod-131441-deployment",
+          "s3Key": "amplify-builds/FollowFunction-316a746b484a7a48546b-build.zip"
+        },
+        "LikeFunction": {
+          "deploymentBucketName": "amplify-topperenterprise-prod-131441-deployment",
+          "s3Key": "amplify-builds/LikeFunction-7a57387233654b307061-build.zip"
+        },
+        "PostFunction": {
+          "deploymentBucketName": "amplify-topperenterprise-prod-131441-deployment",
+          "s3Key": "amplify-builds/PostFunction-48735741433331365439-build.zip"
+        },
+        "StorageFunction": {
+          "deploymentBucketName": "amplify-topperenterprise-prod-131441-deployment",
+          "s3Key": "amplify-builds/StorageFunction-596b50556338322b5a2b-build.zip"
+        },
+        "UserFunction": {
+          "deploymentBucketName": "amplify-topperenterprise-prod-131441-deployment",
+          "s3Key": "amplify-builds/UserFunction-485143677265466d4979-build.zip"
+        }
+      },
+      "auth": {
+        "topperenterprise7e028f52": {}
+      },
+      "storage": {
+        "postImages": {}
+      }
+    }
+  },
   "staging": {
     "awscloudformation": {
       "AuthRoleName": "amplify-amplify24ade9bc59944-staging-144316-authRole",

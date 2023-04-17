@@ -3,27 +3,42 @@
     "topperGateway": {
       "dependsOn": [
         {
-          "attributes": ["Name", "Arn"],
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
           "category": "function",
           "resourceName": "UserFunction"
         },
         {
-          "attributes": ["Name", "Arn"],
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
           "category": "function",
           "resourceName": "LikeFunction"
         },
         {
-          "attributes": ["Name", "Arn"],
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
           "category": "function",
           "resourceName": "FollowFunction"
         },
         {
-          "attributes": ["Name", "Arn"],
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
           "category": "function",
           "resourceName": "CommentFunction"
         },
         {
-          "attributes": ["Name", "Arn"],
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
           "category": "function",
           "resourceName": "PostFunction"
         }
@@ -54,15 +69,25 @@
       "dependsOn": [],
       "frontendAuthConfig": {
         "mfaConfiguration": "OFF",
-        "mfaTypes": ["SMS"],
+        "mfaTypes": [
+          "SMS"
+        ],
         "passwordProtectionSettings": {
           "passwordPolicyCharacters": [],
           "passwordPolicyMinLength": 8
         },
-        "signupAttributes": ["EMAIL"],
-        "socialProviders": ["GOOGLE"],
-        "usernameAttributes": ["EMAIL"],
-        "verificationMechanisms": ["EMAIL"]
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [
+          "GOOGLE"
+        ],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
       },
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
@@ -130,7 +155,9 @@
           "resourceName": "topperenterprise"
         },
         {
-          "attributes": ["BucketName"],
+          "attributes": [
+            "BucketName"
+          ],
           "category": "storage",
           "resourceName": "postImages"
         }
@@ -156,7 +183,9 @@
           "resourceName": "topperenterprise"
         },
         {
-          "attributes": ["BucketName"],
+          "attributes": [
+            "BucketName"
+          ],
           "category": "storage",
           "resourceName": "postImages"
         }
