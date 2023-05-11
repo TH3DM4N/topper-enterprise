@@ -26,6 +26,7 @@ type Post @model @searchable {
   grade: String!
   location: String!
   userId: String!
+  contentStatus: String!
 }
 
 type Comment @model @searchable {

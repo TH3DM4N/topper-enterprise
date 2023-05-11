@@ -85,6 +85,7 @@ export const onCreatePost = /* GraphQL */ `
       grade
       location
       userId
+      contentStatus
       createdAt
       updatedAt
     }
@@ -99,6 +100,7 @@ export const onUpdatePost = /* GraphQL */ `
       grade
       location
       userId
+      contentStatus
       createdAt
       updatedAt
     }
@@ -113,6 +115,7 @@ export const onDeletePost = /* GraphQL */ `
       grade
       location
       userId
+      contentStatus
       createdAt
       updatedAt
     }

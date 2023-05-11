@@ -115,6 +115,15 @@
       "dependsOn": [
         {
           "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "topperenterprise"
+        },
+        {
+          "attributes": [
             "BucketName"
           ],
           "category": "storage",

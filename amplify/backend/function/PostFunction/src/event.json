@@ -1,5 +1,10 @@
 {
-  "key1": "value1",
-  "key2": "value2",
-  "key3": "value3"
+  "version": 1.0,
+  "requestContext": {
+    "functionArn": "arn:aws:lambda:eu-central-1:325510795379:function:ContentChecker-devdylan:$LATEST"
+  },
+  "responsePayload": {
+    "statusCode": 200,
+    "body": "{'imageId':'string','contentType':'rejected'}"
+  }
 }

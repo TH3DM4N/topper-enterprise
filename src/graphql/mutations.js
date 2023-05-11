@@ -106,6 +106,7 @@ export const createPost = /* GraphQL */ `
       grade
       location
       userId
+      contentStatus
       createdAt
       updatedAt
     }
@@ -123,6 +124,7 @@ export const updatePost = /* GraphQL */ `
       grade
       location
       userId
+      contentStatus
       createdAt
       updatedAt
     }
@@ -140,6 +142,7 @@ export const deletePost = /* GraphQL */ `
       grade
       location
       userId
+      contentStatus
       createdAt
       updatedAt
     }

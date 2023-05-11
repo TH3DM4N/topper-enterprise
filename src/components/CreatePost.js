@@ -13,21 +13,43 @@ import {
 } from "@mui/material";
 import { AddAPhoto } from "@mui/icons-material";
 
+import { v4 as uuidv4 } from "uuid";
+
+import { Auth, Storage } from "aws-amplify";
+
+import { createpost } from "../api/post/create_post";
+
 const CreatePost = ({ open, setOpen }) => {
   const [image, setImage] = useState(null);
+  const [imageFile, setImageFile] = useState(null);
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [grade, setGrade] = useState("");
+  const [location, setLocation] = useState("");
 
   const handleImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
+      setImageFile(event.target.files[0]);
       setImage(URL.createObjectURL(event.target.files[0]));
     }
   };
 
-  const handleSubmit = () => {
-    // Handle form submission logic here
-    console.log("Submitted:", { title, description, image });
-    setOpen(false);
+  const handleSubmit = async () => {
+    const user = await Auth.currentAuthenticatedUser();
+    const imageName = uuidv4();
+
+    const data = {
+      title: title,
+      grade: grade,
+      location: location,
+      image: imageName,
+      userId: user.attributes.sub,
+      contentStatus: "Pending",
+    };
+
+    await Storage.put(imageName, imageFile);
+    await createpost("/post", data);
+
+    //setOpen(false);
   };
 
   return (
@@ -70,14 +92,21 @@ const CreatePost = ({ open, setOpen }) => {
           />
           <TextField
             fullWidth
-            label="Description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            label="Grade"
+            value={grade}
+            onChange={(e) => setGrade(e.target.value)}
             variant="outlined"
             size="small"
             margin="dense"
-            multiline
-            rows={4}
+          />
+          <TextField
+            fullWidth
+            label="Location"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            variant="outlined"
+            size="small"
+            margin="dense"
           />
         </DialogContent>
         <DialogActions>

@@ -35,6 +35,7 @@ function CreatePostPage() {
       location: location,
       image: imageName,
       userId: user.attributes.sub,
+      contentType: "Pending",
     };
 
     await createpost("/post", data);

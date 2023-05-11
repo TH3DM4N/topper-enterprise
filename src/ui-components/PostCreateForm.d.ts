@@ -18,6 +18,7 @@ export declare type PostCreateFormInputValues = {
     grade?: string;
     location?: string;
     userId?: string;
+    contentStatus?: string;
 };
 export declare type PostCreateFormValidationValues = {
     title?: ValidationFunction<string>;
@@ -25,6 +26,7 @@ export declare type PostCreateFormValidationValues = {
     grade?: ValidationFunction<string>;
     location?: ValidationFunction<string>;
     userId?: ValidationFunction<string>;
+    contentStatus?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type PostCreateFormOverridesProps = {
@@ -34,6 +36,7 @@ export declare type PostCreateFormOverridesProps = {
     grade?: PrimitiveOverrideProps<TextFieldProps>;
     location?: PrimitiveOverrideProps<TextFieldProps>;
     userId?: PrimitiveOverrideProps<TextFieldProps>;
+    contentStatus?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type PostCreateFormProps = React.PropsWithChildren<{
     overrides?: PostCreateFormOverridesProps | undefined | null;

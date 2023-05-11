@@ -28,12 +28,16 @@ export default function PostCreateForm(props) {
     grade: "",
     location: "",
     userId: "",
+    contentStatus: "",
   };
   const [title, setTitle] = React.useState(initialValues.title);
   const [image, setImage] = React.useState(initialValues.image);
   const [grade, setGrade] = React.useState(initialValues.grade);
   const [location, setLocation] = React.useState(initialValues.location);
   const [userId, setUserId] = React.useState(initialValues.userId);
+  const [contentStatus, setContentStatus] = React.useState(
+    initialValues.contentStatus
+  );
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setTitle(initialValues.title);
@@ -41,6 +45,7 @@ export default function PostCreateForm(props) {
     setGrade(initialValues.grade);
     setLocation(initialValues.location);
     setUserId(initialValues.userId);
+    setContentStatus(initialValues.contentStatus);
     setErrors({});
   };
   const validations = {
@@ -49,6 +54,7 @@ export default function PostCreateForm(props) {
     grade: [{ type: "Required" }],
     location: [{ type: "Required" }],
     userId: [{ type: "Required" }],
+    contentStatus: [{ type: "Required" }],
   };
   const runValidationTasks = async (
     fieldName,
@@ -81,6 +87,7 @@ export default function PostCreateForm(props) {
           grade,
           location,
           userId,
+          contentStatus,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -140,6 +147,7 @@ export default function PostCreateForm(props) {
               grade,
               location,
               userId,
+              contentStatus,
             };
             const result = onChange(modelFields);
             value = result?.title ?? value;
@@ -168,6 +176,7 @@ export default function PostCreateForm(props) {
               grade,
               location,
               userId,
+              contentStatus,
             };
             const result = onChange(modelFields);
             value = result?.image ?? value;
@@ -196,6 +205,7 @@ export default function PostCreateForm(props) {
               grade: value,
               location,
               userId,
+              contentStatus,
             };
             const result = onChange(modelFields);
             value = result?.grade ?? value;
@@ -224,6 +234,7 @@ export default function PostCreateForm(props) {
               grade,
               location: value,
               userId,
+              contentStatus,
             };
             const result = onChange(modelFields);
             value = result?.location ?? value;
@@ -252,6 +263,7 @@ export default function PostCreateForm(props) {
               grade,
               location,
               userId: value,
+              contentStatus,
             };
             const result = onChange(modelFields);
             value = result?.userId ?? value;
@@ -265,6 +277,35 @@ export default function PostCreateForm(props) {
         errorMessage={errors.userId?.errorMessage}
         hasError={errors.userId?.hasError}
         {...getOverrideProps(overrides, "userId")}
+      ></TextField>
+      <TextField
+        label="Content status"
+        isRequired={true}
+        isReadOnly={false}
+        value={contentStatus}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              title,
+              image,
+              grade,
+              location,
+              userId,
+              contentStatus: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.contentStatus ?? value;
+          }
+          if (errors.contentStatus?.hasError) {
+            runValidationTasks("contentStatus", value);
+          }
+          setContentStatus(value);
+        }}
+        onBlur={() => runValidationTasks("contentStatus", contentStatus)}
+        errorMessage={errors.contentStatus?.errorMessage}
+        hasError={errors.contentStatus?.hasError}
+        {...getOverrideProps(overrides, "contentStatus")}
       ></TextField>
       <Flex
         justifyContent="space-between"

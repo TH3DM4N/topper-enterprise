@@ -114,6 +114,7 @@ export const searchPosts = /* GraphQL */ `
         grade
         location
         userId
+        contentStatus
         createdAt
         updatedAt
       }
@@ -296,6 +297,7 @@ export const getPost = /* GraphQL */ `
       grade
       location
       userId
+      contentStatus
       createdAt
       updatedAt
     }
@@ -315,6 +317,7 @@ export const listPosts = /* GraphQL */ `
         grade
         location
         userId
+        contentStatus
         createdAt
         updatedAt
       }
